@@ -159,7 +159,7 @@ systemctl restart v2ray
 
 ## 7.客户端配置
 
-手动配置
+手动配置 [推荐]
 
 ```
 地址(address)：youdiangan.ga
@@ -170,7 +170,7 @@ systemctl restart v2ray
 伪装路径(ws path)：/dylanbai8
 ```
 
-客户端json 一键导入
+客户端json 一键导入（不同客户端可能需修改inbounds port 如v2rayNG为10808）
 
 ```
 {
@@ -256,6 +256,13 @@ systemctl restart v2ray
 
 2.为减轻服务器负担 未使用底层tls 及ssl加密，如有必要 可修改为443端口 在 root /www/ 下一行加入 tls admin@youdiangan.ga
 并在caddy.service内修改 ExecStart=/usr/local/bin/caddy -conf=/usr/local/bin/Caddyfile -agree=true -ca=https://acme-v02.api.letsencrypt.org/directory
+客户端json文件亦需修改：
+"security": "tls",
+path（不要忘记逗号）下一行添加
+"tlsSettings": {
+"serverName": "youdiangan.ga"
+}
+此次不再详述
 
 3.如有必要安装php+sqlite3环境 执行以下代码：
 
