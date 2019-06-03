@@ -49,7 +49,7 @@ EOF
 ```
 touch /etc/v2ray/config.json
 
-cat <<EOF > /usr/local/bin/Caddyfile
+cat <<EOF > /etc/v2ray/config.json
 {
   "log": {
     "access": "/var/log/v2ray/access.log",
