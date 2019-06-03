@@ -212,7 +212,7 @@ systemctl restart v2ray
         ]
       },
       "tag": "out-0",
-      "streamSettings" :{
+      "streamSettings": {
         "network": "ws",
         "security": "none",
         "wsSettings": {
@@ -325,7 +325,7 @@ cat <<EOF > /www/mima888888/v2ray.json
         ]
       },
       "tag": "out-0",
-      "streamSettings" :{
+      "streamSettings": {
         "network": "ws",
         "security": "none",
         "wsSettings": {
