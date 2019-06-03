@@ -266,10 +266,13 @@ path（不要忘记逗号）下一行添加
 
 3.如有必要安装php+sqlite3环境 执行以下代码：
 
+安装源
+参照：https://blog.csdn.net/yueqifeng_812/article/details/79045670
+
 安装程序
 apt install php7.0-cgi php7.0-fpm php7.0-curl php7.0-gd php7.0-mbstring php7.0-xml php7.0-sqlite3 sqlite3 -y
-systemctl enable php-fpm
-systemctl restart php-fpm
+systemctl enable php7.0-fpm
+systemctl restart php7.0-fpm
 
 给予权限
 groupadd www-data
@@ -374,3 +377,10 @@ EOF
 
 url路径：http://youdiangan.ga/mima888888/v2ray.json
 
+## 10.附录三
+
+```
+关闭apache2
+systemctl stop apache2
+systemctl disable apache2
+```
