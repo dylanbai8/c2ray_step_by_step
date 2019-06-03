@@ -1,8 +1,10 @@
-## 0.前期准备
+## 0.前期准备 （借用域名youdiangan.ga为案例）
+
+域名 IP等配置信息 照猫画虎 自行更改
 
 ```
 解析域名 “youdiangan.ga” A记录到 “199.187.125.84”
-或者解决域名 “youdiangan.ga” AAAA记录到 “2607:2200:0:2347:0:3353:e1:1a2b”
+或者解析域名 “youdiangan.ga” AAAA记录到 “2607:2200:0:2347:0:3353:e1:1a2b”
 
 (AAAA记录可以配合cloudflare转换为ip4)
 ```
@@ -25,7 +27,7 @@ bash <(curl -L -s https://install.direct/go.sh)
 
 ## 3.配置caddy和v2ray
 
-添加或者替换caddy配置文件：/usr/local/bin/  Caddyfile
+添加caddy配置文件：/usr/local/bin/  Caddyfile
 
 ```
 touch /usr/local/bin/Caddyfile
@@ -42,7 +44,7 @@ http://youdiangan.ga:80 {
 EOF
 ```
 
-添加或者替换v2ray配置文件：/etc/v2ray/  config.json
+添加v2ray配置文件：/etc/v2ray/  config.json
 
 ```
 touch /etc/v2ray/config.json
@@ -117,7 +119,7 @@ touch /etc/systemd/system/caddy.service
 
 cat <<EOF > /etc/systemd/system/caddy.service
 [Unit]
-Description=Caddy server
+Description=Caddy_Server
 After=network.target
 Wants=network.target
 [Service]
@@ -145,7 +147,7 @@ It's a little awkward!
 EOF
 ```
 
-## 6.启动(重启)caddy和v2ray 载入配置文件
+## 6.重启caddy和v2ray 载入配置文件
 
 ```
 systemctl daemon-reload
@@ -172,78 +174,78 @@ systemctl restart v2ray
 
 ```
 {
-  "log":{},
-  "dns":{},
-  "stats":{},
-  "inbounds":[
+  "log": {},
+  "dns": {},
+  "stats": {},
+  "inbounds": [
     {
-      "port":"1080",
-      "protocol":"socks",
-      "settings":{
-        "auth":"noauth",
-        "udp":true
+      "port": "1080",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
       },
-      "tag":"in-0"
+      "tag": "in-0"
     },
     {
-      "port":"1081",
-      "protocol":"http",
-      "settings":{},
-      "tag":"in-1"
+      "port": "1081",
+      "protocol": "http",
+      "settings": {},
+      "tag": "in-1"
     }
   ],
-  "outbounds":[
+  "outbounds": [
     {
-      "protocol":"vmess",
-      "settings":{
-        "vnext":[
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
           {
-            "address":"youdiangan.ga",
-            "port":80,
-            "users":[
+            "address": "youdiangan.ga",
+            "port": 80,
+            "users": [
               {
-                "id":"c1fa2c00-c45c-42bd-8d28-6ee844a88a2d",
-                "alterId":6
+                "id": "c1fa2c00-c45c-42bd-8d28-6ee844a88a2d",
+                "alterId": 6
               }
             ]
           }
         ]
       },
-      "tag":"out-0",
-      "streamSettings":{
-        "network":"ws",
-        "security":"none",
-        "wsSettings":{
-          "path":"/dylanbai8"
+      "tag": "out-0",
+      "streamSettings" :{
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/dylanbai8"
         }
       }
     },
     {
-      "tag":"direct",
-      "protocol":"freedom",
-      "settings":{}
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
     },
     {
-      "tag":"blocked",
-      "protocol":"blackhole",
-      "settings":{}
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
     }
   ],
-  "routing":{
-    "domainStrategy":"IPOnDemand",
-    "rules":[
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
       {
-        "type":"field",
-        "ip":[
+        "type": "field",
+        "ip": [
           "geoip:private"
         ],
-        "outboundTag":"direct"
+        "outboundTag": "direct"
       }
     ]
   },
-  "policy":{},
-  "reverse":{},
-  "transport":{}
+  "policy": {},
+  "reverse": {},
+  "transport": {}
 }
 ```
 
@@ -285,82 +287,83 @@ touch /www/mima888888/v2ray.json
 
 cat <<EOF > /www/mima888888/v2ray.json
 {
-  "log":{},
-  "dns":{},
-  "stats":{},
-  "inbounds":[
+  "log": {},
+  "dns": {},
+  "stats": {},
+  "inbounds": [
     {
-      "port":"1080",
-      "protocol":"socks",
-      "settings":{
-        "auth":"noauth",
-        "udp":true
+      "port": "1080",
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
       },
-      "tag":"in-0"
+      "tag": "in-0"
     },
     {
-      "port":"1081",
-      "protocol":"http",
-      "settings":{},
-      "tag":"in-1"
+      "port": "1081",
+      "protocol": "http",
+      "settings": {},
+      "tag": "in-1"
     }
   ],
-  "outbounds":[
+  "outbounds": [
     {
-      "protocol":"vmess",
-      "settings":{
-        "vnext":[
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
           {
-            "address":"youdiangan.ga",
-            "port":80,
-            "users":[
+            "address": "youdiangan.ga",
+            "port": 80,
+            "users": [
               {
-                "id":"c1fa2c00-c45c-42bd-8d28-6ee844a88a2d",
-                "alterId":6
+                "id": "c1fa2c00-c45c-42bd-8d28-6ee844a88a2d",
+                "alterId": 6
               }
             ]
           }
         ]
       },
-      "tag":"out-0",
-      "streamSettings":{
-        "network":"ws",
-        "security":"none",
-        "wsSettings":{
-          "path":"/dylanbai8"
+      "tag": "out-0",
+      "streamSettings" :{
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/dylanbai8"
         }
       }
     },
     {
-      "tag":"direct",
-      "protocol":"freedom",
-      "settings":{}
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {}
     },
     {
-      "tag":"blocked",
-      "protocol":"blackhole",
-      "settings":{}
+      "tag": "blocked",
+      "protocol": "blackhole",
+      "settings": {}
     }
   ],
-  "routing":{
-    "domainStrategy":"IPOnDemand",
-    "rules":[
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
       {
-        "type":"field",
-        "ip":[
+        "type": "field",
+        "ip": [
           "geoip:private"
         ],
-        "outboundTag":"direct"
+        "outboundTag": "direct"
       }
     ]
   },
-  "policy":{},
-  "reverse":{},
-  "transport":{}
+  "policy": {},
+  "reverse": {},
+  "transport": {}
 }
 EOF
 ```
 
 使用：打开手机客户端v2rayNG 右上角+号-自定义配置-剪贴板url导入自定义配置
+
 url路径：http://youdiangan.ga/mima888888/v2ray.json
 
