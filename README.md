@@ -384,6 +384,9 @@ url路径：http://youdiangan.ga/mima888888/v2ray.json
 systemctl stop apache2
 systemctl disable apache2
 
+配置文件参照
+https://github.com/veekxt/v2ray-template/tree/master/websocket%2Bvmess%2Bnginx-or-caddy%2Btls
+
 Bash一键安装脚本
 https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3
 ```
