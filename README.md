@@ -383,4 +383,7 @@ url路径：http://youdiangan.ga/mima888888/v2ray.json
 关闭apache2
 systemctl stop apache2
 systemctl disable apache2
+
+Bash一键安装脚本
+https://github.com/dylanbai8/Onekey_Caddy_PHP7_Sqlite3
 ```
