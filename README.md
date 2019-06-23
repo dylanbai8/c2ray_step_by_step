@@ -21,3 +21,12 @@ https://github.com/dylanbai8/c2ray_step_by_step/blob/master/附录-加一个骚�
 
 https://github.com/dylanbai8/c2ray_step_by_step/blob/master/附录-一些额外的配置命令.md
 
+
+
+## 关联项目：
+
+https://c2ray.ml
+
+https://github.com/dylanbai8/c2ray
+
+
