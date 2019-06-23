@@ -39,12 +39,17 @@ bash <(curl -L -s https://install.direct/go.sh)
 touch /usr/local/bin/Caddyfile
 
 cat <<EOF > /usr/local/bin/Caddyfile
-http://youdiangan.ga:80 {
-    root /www/
-
-    proxy /dylanbai8 127.0.0.1:10000 {
+103-1-14-203.ip.c2ray.ml:80 {
+root /www
+gzip
+index index.html
+}
+outlook.live.com:80 {
+proxy / localhost:10000 {
         websocket
-        header_upstream -Origin
+        header_upstream Connection {>Connection}
+        header_upstream Upgrade {>Upgrade}
+        header_upstream Host "103-1-14-203.ip.c2ray.ml"
     }
 }
 EOF
