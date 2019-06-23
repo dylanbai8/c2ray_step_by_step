@@ -1,6 +1,8 @@
+## 使用方法：按照空行分出的段落，在Xshell依次执行以下命令即可。
+
 ## 0.前期准备
 
-为尽可能的节省服务器资源 此教程为（80端口、无底层ssl加密）示例
+此教程为（80端口、无底层ssl加密）示例。（尽可能的节省服务器资源） 
 
 ```
 V2ray 的 WebSocket+TLS+Web 配置需要有域名配合才能搭建使用
@@ -71,14 +73,14 @@ cat <<EOF > /etc/v2ray/config.json
         "clients": [
           {
             "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
-            "alterId": 64
+            "alterId": 6
           }
         ]
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-        "path": "/ray"
+        "path": "/c2ray"
         }
       }
     }
@@ -144,12 +146,16 @@ systemctl restart v2ray
 手动配置 [推荐]
 
 ```
-地址(address)：youdiangan.ga
+地址(address)：103-1-14-203.ip.c2ray.ml
 端口(port)：80
-用户ID(id)：c1fa2c00-c45c-42bd-8d28-6ee844a88a2d
+用户ID(id)：b831381d-6324-4d53-ad4f-8cda48b30811
 额外ID(alterid)：6
+加密方式(security)：无
 传输协议(network)：ws
-伪装路径(ws path)：/ray
+伪装类型(type)：无
+伪装域名(ws host)：outlook.live.com
+伪装路径(ws path)：/c2ray
+底层传输安全：无
 ```
 
 客户端json 一键导入（不同客户端可能需修改inbounds port 如v2rayNG为10808）
@@ -182,7 +188,7 @@ systemctl restart v2ray
             "users": [
               {
                 "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
-                "alterId": 64
+                "alterId": 6
               }
             ]
           }
@@ -192,7 +198,7 @@ systemctl restart v2ray
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "/ray"
+          "path": "/c2ray"
         }
       }
     }
