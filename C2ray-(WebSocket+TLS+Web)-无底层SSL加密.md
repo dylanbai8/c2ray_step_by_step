@@ -164,6 +164,12 @@ systemctl restart v2ray
 {
   "inbounds": [
     {
+      "port": 1087,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {}
+    },
+    {
       "port": 1080,
       "listen": "127.0.0.1",
       "protocol": "socks",
@@ -211,8 +217,8 @@ systemctl restart v2ray
 ## 可能用到的命令
 
 ```
-由于数据为明文传输，伪装域名尽量使用一些国外的知名网站（如：bing.com outlook.com github.com 等）
-伪装路径尽量不要人云亦云，个性化一些（如：download data api video 等）
+由于数据为明文传输，“伪装域名”推荐尽量使用一些国外的知名网站（如：bing.com outlook.com github.com 等）
+“伪装路径”尽量不要人云亦云，个性化一些（如：download data api video 等）
 
 关闭apache2
 systemctl stop apache2
