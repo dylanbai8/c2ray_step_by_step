@@ -2,10 +2,10 @@
 
 ## 0.前期准备
 
-此教程为（80端口、无底层ssl加密）示例。（尽可能的节省服务器资源） 
+此教程为（80端口、无底层ssl加密）示例。（尽可能的节省服务器资源 且适用于无80端口的 nat vps） 
 
 ```
-V2ray 的 WebSocket+TLS+Web 配置需要有域名配合才能搭建使用
+V2ray 的 WebSocket+Web 配置需要有域名配合才能搭建使用
 
 你可以使用本站提供的临时域名：
 如服务器IP为 103.1.14.203 临时域名即 103-1-14-203.ip.c2ray.ml
@@ -211,6 +211,9 @@ systemctl restart v2ray
 ## 可能用到的命令
 
 ```
+由于数据为明文传输，伪装域名尽量使用一些国外的知名网站（如：bing.com outlook.com github.com 等）
+伪装路径尽量不要人云亦云，个性化一些（如：download data api video 等）
+
 关闭apache2
 systemctl stop apache2
 systemctl disable apache2
