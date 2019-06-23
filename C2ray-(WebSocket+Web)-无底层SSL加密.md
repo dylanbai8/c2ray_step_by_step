@@ -2,7 +2,7 @@
 
 ## 0.前期准备
 
-此教程为（80端口、无底层ssl加密）示例。（尽可能的节省服务器资源 且适用于无80端口的 nat vps） 
+此教程为（80端口、无底层ssl加密、Host 分流）示例。（尽可能的节省服务器资源 且适用于无80端口的 nat vps） 
 
 ```
 V2ray 的 WebSocket+Web 配置需要有域名配合才能搭建使用
@@ -189,7 +189,7 @@ systemctl restart v2ray
       "settings": {
         "vnext": [
           {
-            "address": "mydomain.me",
+            "address": "103-1-14-203.ip.c2ray.ml",
             "port": 443,
             "users": [
               {
@@ -202,7 +202,7 @@ systemctl restart v2ray
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
+        "security": "",
         "wsSettings": {
           "path": "/c2ray"
         }

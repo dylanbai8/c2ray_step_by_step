@@ -2,7 +2,7 @@
 
 ## 0.前期准备
 
-此教程为（443端口、底层传输ssl加密）示例。（底层数据传输安全 不适用于无80端口的 nat vps） 
+此教程为（443端口、底层传输ssl加密、路径分流）示例。（底层数据传输安全 不适用于无80端口的 nat vps） 
 
 ```
 V2ray 的 WebSocket+TLS+Web 配置需要有域名配合才能搭建使用
@@ -42,17 +42,15 @@ touch /usr/local/bin/Caddyfile
 
 cat <<EOF > /usr/local/bin/Caddyfile
 103-1-14-203.ip.c2ray.ml:443 {
-tls admin@103-1-14-203.ip.c2ray.ml
 root /www
 gzip
 index index.html
-}
-outlook.live.com:443 {
-proxy / localhost:10000 {
-        websocket
-        header_upstream Connection {>Connection}
-        header_upstream Upgrade {>Upgrade}
-        header_upstream Host "103-1-14-203.ip.c2ray.ml"
+tls admin@103-1-14-203.ip.c2ray.ml
+proxy /c2ray localhost:10000 {
+       websocket
+       header_upstream Connection {>Connection}
+       header_upstream Upgrade {>Upgrade}
+       header_upstream Host {Host}
     }
 }
 EOF
@@ -154,7 +152,7 @@ systemctl restart v2ray
 加密方式(security)：无
 传输协议(network)：ws
 伪装类型(type)：无
-伪装域名(ws host)：outlook.live.com
+伪装域名(ws host)：无
 伪装路径(ws path)：/c2ray
 底层传输安全：tls
 ```
@@ -190,7 +188,7 @@ systemctl restart v2ray
       "settings": {
         "vnext": [
           {
-            "address": "mydomain.me",
+            "address": "103-1-14-203.ip.c2ray.ml",
             "port": 443,
             "users": [
               {
@@ -218,7 +216,7 @@ systemctl restart v2ray
 ## 可能用到的命令
 
 ```
-此配置已开启 底层传输TLS加密，“伪装域名”和“伪装路径”参数是被加密传输的。
+此配置已开启 底层传输TLS加密，“伪装路径”参数是被加密传输的。
 
 关闭apache2
 systemctl stop apache2
