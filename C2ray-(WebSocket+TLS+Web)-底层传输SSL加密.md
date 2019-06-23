@@ -14,7 +14,7 @@ V2ray 的 WebSocket+TLS+Web 配置需要有域名配合才能搭建使用
 解析域名 “youdiangan.ga” A记录到 “103.1.14.203”
 或者解析域名 “youdiangan.ga” AAAA记录到 “2607:2200:0:2347:0:3353:e1:1a2b”
 
-(AAAA记录可以配合cloudflare转换为ip4)
+(AAAA记录可以配合cloudflare转换为ip4，适用于无80端口的 nat vps)
 ```
 
 ## 1.VPS安装Debian8 更新系统 安装必要软件
