@@ -108,7 +108,7 @@ After=network.target
 Wants=network.target
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/caddy -conf /usr/local/bin/Caddyfile
+ExecStart=/usr/local/bin/caddy -conf=/usr/local/bin/Caddyfile -agree=true -ca=https://acme-v02.api.letsencrypt.org/directory
 RestartPreventExitStatus=23
 Restart=always
 User=root
